@@ -1,0 +1,6 @@
+<?php $blockObj= $block->getLayout()->createBlock('Guilherme\ChangeColor\Block\Main'); ?>
+<style>
+    button{
+        background-color: <?php echo '#' . $blockObj->getBackgroundColor() . '!important'; ?>;
+    }
+</style>
