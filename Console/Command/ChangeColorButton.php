@@ -13,15 +13,12 @@ class ChangeColorButton extends Command
     const WEBSITEID = 'website_id';
 
     protected $_storeManager;
-    protected $_coreRegistry;
 
     public function __construct(
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\Registry $coreRegistry
+        \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {
         parent::__construct();
         $this->_storeManager = $storeManager;
-        $this->_coreRegistry = $coreRegistry;
     }
 
     protected function configure()
@@ -40,6 +37,6 @@ class ChangeColorButton extends Command
         $website_id = $input->getArgument(self::WEBSITEID);
         $this->_storeManager->setCurrentStore($website_id);
         $bg = $input->getArgument(self::COLOR);
-        $output->writeln("Cor alterada com sucesso para: $bg");
+        $output->writeln("Cor alterada com sucesso para: #$bg");
     }
 }
